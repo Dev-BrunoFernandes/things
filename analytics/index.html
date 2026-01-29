@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics</title>
+
+<!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+<!-- Icons -->
+    <link rel='stylesheet'
+          href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css'>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"/>
+</head>
+<body>
+<!-- == == == Popups == == == -->
+    <div id="toast_container"></div>
+
+<!-- == == == Header == == == -->
+    <header>
+        <!-- Language changer -->
+        <div class="toggle_container">
+            <input type="checkbox" id="lang_toggle" class="toggle_input">
+
+            <label for="lang_toggle" class="toggle">
+                <span class="label left">PT</span>
+                <span class="label right">EN</span>
+                <span class="toggle_circle"></span>
+            </label>
+        </div>
+
+        <h1 class="title">Analytics</h1>
+
+        <!-- Theme changer -->
+        <label class="switch">
+            <input id="theme_input" type="checkbox"/>
+            <div class="slider round">
+                <div class="sun_moon">
+                    <svg id="moon_dot_1" class="moon_dot" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="50"></circle>
+                    </svg>
+                    <svg id="moon_dot_2" class="moon_dot" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="50"></circle>
+                    </svg>
+                    <svg id="moon_dot_3" class="moon_dot" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="50"></circle>
+                    </svg>
+                    <svg id="light_ray_1" class="light_ray" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="50"></circle>
+                    </svg>
+                    <svg id="light_ray_2" class="light_ray" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="50"></circle>
+                    </svg>
+                    <svg id="light_ray_3" class="light_ray" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="50"></circle>
+                    </svg>
+
+                    <svg id="cloud_1" class="cloud_dark" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="50"></circle>
+                    </svg>
+                    <svg id="cloud_2" class="cloud_dark" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="50"></circle>
+                    </svg>
+                    <svg id="cloud_3" class="cloud_dark" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="50"></circle>
+                    </svg>
+                    <svg id="cloud_4" class="cloud_light" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="50"></circle>
+                    </svg>
+                    <svg id="cloud_5" class="cloud_light" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="50"></circle>
+                    </svg>
+                    <svg id="cloud_6" class="cloud_light" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="50"></circle>
+                    </svg>
+                </div>
+                <div class="stars">
+                    <svg id="star_1" class="star" viewBox="0 0 20 20">
+                        <path
+                        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+                        ></path>
+                    </svg>
+                    <svg id="star_2" class="star" viewBox="0 0 20 20">
+                        <path
+                        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+                        ></path>
+                    </svg>
+                    <svg id="star_3" class="star" viewBox="0 0 20 20">
+                        <path
+                        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+                        ></path>
+                    </svg>
+                    <svg id="star_4" class="star" viewBox="0 0 20 20">
+                        <path
+                        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+                        ></path>
+                    </svg>
+                </div>
+            </div>
+        </label>
+    </header>
+
+<!-- == == == Main == == == -->
+    <main>
+        <!-- New transaction form -->
+        <section id="new_transaction">
+            <h2 class="title" data-i18n="new_title">Nova Transação</h2>
+            
+            <form id="transaction_form">
+                <div class="input_container">
+                    <input type="text"
+                           id="cat_input"
+                           class="main_input"
+                           required="required"
+                           placeholder="Categoria (ex: Saúde)"
+                           data-i18n="category_placeholder">
+
+                    <label class="username_label"
+                           for="cat_input"
+                           data-i18n="category_placeholder">
+                        Categoria
+                    </label>
+
+                    <i class="fa-solid fa-layer-group user_icon"></i>
+                </div>
+
+                <div class="input_container">
+                    <input type="number"
+                           step="0.01"
+                           id="val_input"
+                           class="main_input"
+                           required="required"
+                           placeholder="Valor (R$)"
+                           data-i18n="value_placeholder">
+
+                    <label class="username_label"
+                           for="val_input"
+                           data-i18n="value_placeholder">
+                        Valor (R$)
+                    </label>
+
+                    <i class="fa-solid fa-dollar-sign user_icon"></i>
+                </div>
+
+                <div class="input_container">
+                    <input type="date"
+                           id="date_input"
+                           required="required"
+                           class="date_input main_input"
+                           data-i18n="date_placeholder">
+
+                    <label class="username_label"
+                           for="date_input"
+                           data-i18n="date_placeholder">
+                        Data (DD/MM/AAAA)
+                    </label>
+
+                    <i class="fa-regular fa-calendar user_icon"></i>
+                </div>
+
+                <button type="submit" class="submit_wrapper">
+                    <div class="container">
+                        <div class="left-side">
+                            <div class="card">
+                                <div class="card-line"></div>
+                                <div class="buttons"></div>
+                            </div>
+
+                            <div class="post">
+                                <div class="post-line"></div>
+                                <div class="screen">
+                                    <div class="dollar" data-i18n="dollar">R$</div>
+                                </div>
+                                <div class="numbers"></div>
+                                <div class="numbers-line2"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="right-side">
+                            <div class="new" data-i18n="new_transaction_btn">Adicionar</div>
+                            <svg viewBox="0 0 451.846 451.847" height="512" width="512" xmlns="http://www.w3.org/2000/svg" class="arrow">
+                                <path d="M345.441 248.292L151.154 442.573c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744L278.318 225.92 106.409 54.017c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.287 194.284c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+            </form>
+        </section>
+
+        <!-- Filter -->
+        <section id="filter">
+            <h2 class="title" data-i18n="filter_title">Filtro</h2>
+
+            <div id="filter_inputs">
+                <!-- Years filter -->
+                <div class="custom_dropdown">
+                    <div class="dropdown_header">
+                        <span data-i18n="year_title">Anos</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown_content">
+                        <label class="cyberpunk_checkbox_label">
+                            <input type="checkbox" class="cyberpunk_checkbox check_all">
+                            <span data-i18n="all">Todos</span>
+                        </label>
+
+                        <hr class="dropdown_divider">
+
+                        <div id="year_options" class="options_list"></div>
+                    </div>
+                </div>
+
+                <!-- Months filter -->
+                <div class="custom_dropdown">
+                    <div class="dropdown_header">
+                        <span data-i18n="month_title">Meses</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown_content">
+                        <label class="cyberpunk_checkbox_label">
+                            <input type="checkbox" class="cyberpunk_checkbox check_all">
+                            <span data-i18n="all">Todos</span>
+                        </label>
+
+                        <hr class="dropdown_divider">
+
+                        <div id="month_options" class="options_list"></div>
+                    </div>
+                </div>
+
+                <!-- Days filter -->
+                <div class="custom_dropdown">
+                    <div class="dropdown_header">
+                        <span data-i18n="day_title">Dias</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="dropdown_content">
+                        <label class="cyberpunk_checkbox_label">
+                            <input type="checkbox" class="cyberpunk_checkbox check_all">
+                            <span data-i18n="all">Todos</span>
+                        </label>
+
+                        <hr class="dropdown_divider">
+
+                        <div id="day_options" class="options_list"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Cards -->
+        <section>
+            <h2 class="title" data-i18n="summary_title">Summary</h2>
+            <div id="dashboard_cards"></div>
+        </section>
+
+        <!-- Analytics Charts -->
+        <section id="analytics_charts">
+            <h2 class="title" data-i18n="charts_title">Visualização de Gastos</h2>
+            <div class="charts_container">
+                <div class="chart_box">
+                    <canvas id="categoryChart"></canvas>
+                </div>
+                <div class="chart_box">
+                    <canvas id="evolutionChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Delete Button -->
+        <button class="noselect">
+            <span class="text" data-i18n="delete_btn">Delete Transactions</span>
+            <span class="icon">
+                <i class="fa-solid fa-trash-can"></i>
+            </span>
+        </button>
+
+        <!-- Delete Modal -->
+        <div id="delete_modal" class="modal_overlay">
+            <div class="modal_content">
+                <div class="modal_header">
+                    <h2 class="title" data-i18n="transactions_list_title">Transações Salvas</h2>
+                    <button id="close_modal">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="close_icon">
+                            <path class="path-1" 
+                                  d="m3.45,8.83c-.39,0-.76-.23-.92-.62-.21-.51.03-1.1.54-1.31L14.71,2.08c.51-.21,1.1.03,1.31.54.21.51-.03,1.1-.54,1.31L3.84,8.75c-.13.05-.25.08-.38.08Z">
+                            </path>
+                            <path class="path-2"
+                                  d="m2.02,17.13c-.39,0-.76-.23-.92-.62-.21-.51.03-1.1.54-1.31L21.6,6.94c.51-.21,1.1.03,1.31.54.21.51-.03,1.1-.54,1.31L2.4,17.06c-.13.05-.25.08-.38.08Z">
+                            </path>
+                            <path class="path-3"
+                                  d="m8.91,21.99c-.39,0-.76-.23-.92-.62-.21-.51.03-1.1.54-1.31l11.64-4.82c.51-.21,1.1.03,1.31.54.21.51-.03,1.1-.54,1.31l-11.64,4.82c-.13.05-.25.08-.38.08Z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div id="transactions_list_container"></div>
+            </div>
+        </div>
+    </main>
+
+<!-- Javascript -->
+    <script type="module" src="assets/javascript/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
