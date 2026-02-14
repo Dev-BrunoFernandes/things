@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Snake | Dev Edition</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+<!-- == == == Header == == == -->
+    <header class="header">
+        <h1>SNAKE</h1>
+        <div class="stats-container">
+            <div class="stat-box">Score: <span id="current-score">0</span></div>
+            <div class="stat-box">Highest Score: <span id="best-score">0</span></div>
+        </div>
+    </header>
+
+    <main id="game-container">
+        <canvas id="snakeGame" width="400" height="400"></canvas>
+    </main>
+
+    <footer class="controls">
+        <button id="start-btn">Start / Reset</button>
+        <button id="theme-toggle" class="secondary">Switch Theme</button>
+        <p class="instructions">Use the arrow keys or WASD to move.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

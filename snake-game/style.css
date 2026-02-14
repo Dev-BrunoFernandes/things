@@ -1,0 +1,111 @@
+/* == == == Variables == == == */
+:root {
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+    --bg-color: #f8f9fa;
+    --container-bg: #ffffff;
+    --text-color: #212529;
+
+    --snake-head: #2d3436;
+    --snake-body: #636e72;
+    --food-color: #e74c3c;
+    --accent-color: #0984e3;
+}
+
+/* == == == Dark Theme == == == */
+[data-theme="dark"] {
+    --shadow: 0 4px 15px rgba(0,0,0,0.5);
+
+    --bg-color: #1a1a1a;
+    --container-bg: #2d2d2d;
+    --text-color: #f8f9fa;
+
+    --snake-head: #ffffff;
+    --snake-body: #b2bec3;
+    --food-color: #ff7675;
+}
+
+/* == == == Global == == == */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* == == == Header == == == */
+.header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.stats-container {
+    gap: 15px;
+    margin-top: 10px;
+    display: flex;
+}
+
+.stat-box {
+    box-shadow: var(--shadow);
+    border-radius: 6px;
+    background: var(--container-bg);
+    padding: 8px 16px;
+    font-weight: bold;
+}
+
+#game-container {
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 2px solid rgba(0,0,0,0.05);
+    border-radius: 12px;
+    background: var(--container-bg);
+}
+
+canvas {
+    display: block;
+    /* Linhas sutis: 5% de opacidade para não poluir o visual */
+    background-image: 
+        linear-gradient(rgba(128, 128, 128, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(128, 128, 128, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px; 
+    background-color: var(--container-bg);
+}
+
+.controls {
+    gap: 12px;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 24px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+button.secondary {background-color: var(--snake-body);}
+
+button:hover {filter: brightness(1.1);}
+
+.instructions {
+    opacity: 0.6;
+    font-size: 0.85rem;
+}
